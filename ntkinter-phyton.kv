@@ -1,0 +1,40 @@
+<MyLayout>
+    FloatLayout:
+        size: (root.width, root.height)
+        Label:
+            id: title
+            pos_hint: {'center_x': .5, 'center_y': .98}
+        Label:
+            id: author
+            pos_hint: {'center_x': .5, 'center_y': .94}
+        Label:
+            id: page
+            pos_hint: {'center_x': .5, 'center_y': .9}
+        Label:
+            id: tags
+            pos_hint: {'center_x': .5, 'center_y': .85}
+        AsyncImage:
+            id: img
+            source: "https://i.imgur.com/IBNSjqC.jpg"
+            size_hint: (.6, .6)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+        Button:
+            text: "Random"
+            size_hint: (.15, .05)
+            pos_hint: {'center_x': .91, 'center_y': .05}
+            on_press: root.press()
+        Button:
+            text: ">"
+            size_hint: (.05, .05)
+            pos_hint: {'center_x': .8, 'center_y': .5}
+            on_press: root.pageplus()
+        Button:
+            text: "<"
+            size_hint: (.05, .05)
+            pos_hint: {'center_x': .2, 'center_y': .5}
+            on_press: root.pageminus()
+        Button:
+            text: "Copy link"
+            size_hint: (.15, .05)
+            pos_hint: {'center_x': .1, 'center_y': .05}
+            on_press: root.copy()
