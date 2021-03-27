@@ -11,7 +11,8 @@ async def read_item():
         'title': comic.title(hentai.Format.Pretty),
         'author': [artist.name for artist in comic.artist].append("Not defined"),
         'tags': [tag.name for tag in comic.tag],
-        'img': comic.image_urls
+        'img': comic.image_urls,
+        'id': comic.id
     }
     return ok
 if __name__ == "__main__":
