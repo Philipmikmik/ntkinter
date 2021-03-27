@@ -9,7 +9,7 @@ async def read_item():
     comic = hentai.Utils.get_random_hentai()
     ok = {
         'title': comic.title(hentai.Format.Pretty),
-        'author': [artist.name for artist in comic.artist].append("Not defined"),
+        'author': [artist.name for artist in comic.artist],
         'tags': [tag.name for tag in comic.tag],
         'img': comic.image_urls,
         'id': comic.id
