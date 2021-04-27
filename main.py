@@ -6,7 +6,7 @@ import faker
 app = FastAPI(docs_url=None, redoc_url=None)
 
 @app.get("/json/")
-async def read_item():
+async def read_item(exc, inc):
     hentai.RequestHandler._fake = faker.Faker()
     comic = hentai.Utils.get_random_hentai()
     ok = {
@@ -14,7 +14,9 @@ async def read_item():
         'author': [artist.name for artist in comic.artist],
         'tags': [tag.name for tag in comic.tag],
         'img': comic.image_urls,
-        'id': comic.id
+        'id': comic.id,
+        'exclusions': exc,
+        'inclusions': inc
     }
     return ok
 if __name__ == "__main__":
