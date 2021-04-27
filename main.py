@@ -7,14 +7,14 @@ app = FastAPI(docs_url=None, redoc_url=None)
 
 @app.get("/json/")
 async def read_item(exc, inc):
-    global comic
+    global comic, found
     hentai.RequestHandler._fake = faker.Faker()
     found = False
     if exc and inc == "None":
         comic = hentai.Utils.get_random_hentai()
     else:
         if inc != "None":
-            global ran, maxran, found
+            global ran, maxran
             maxran = 3000
             while True:
                 try:
