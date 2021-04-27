@@ -19,15 +19,14 @@ async def read_item(exc, inc):
             while True:
                 try:
                     ran = random.randint(1, maxran)
-                    print(ran)
                     comics = hentai.Utils.search_by_query(query='tag:' + inc, sort=hentai.Sort.Popular, page=ran)
                     comic = comics[random.randint(0, 24)]
                     found = True
+                    break
                 except IndexError:
                     maxran = ran
         if exc != "None":
             extags = exc.split(', ')
-            print(extags)
             while True:
                 if found == False:
                     comic = hentai.Utils.get_random_hentai()
